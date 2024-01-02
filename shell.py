@@ -45,3 +45,8 @@ def t_NUMBER(self, t):
         r'\d+'
         t.value = int(t.value)
         return t
+
+  # Define a rule to track line numbers
+def t_newline(self, t):
+        r'\n+'
+        t.lexer.lineno += len(t.value)
