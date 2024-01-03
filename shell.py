@@ -58,6 +58,9 @@ def t_newline(self, t):
         t.lexer.lineno += len(t.value)
 
 # Define a rule to handle identifiers
+#'[a-zA-Z_] matches the first character of an identifier, which must be a letter (either lowercase or uppercase) or an underscore '_'
+#[a-zA-Z_0-9]*' matches zero or more subsequent characters of an identifier. These characters can be letters(lowercase or uppercase), underscores, or digits(0-9)
+#t.type = 'ID' this line sets the token type of the matched text('t') to 'ID'.       
 def t_ID(self, t):
         r'[a-zA-Z_][a-zA-Z_0-9]*'
         t.type = 'ID'
