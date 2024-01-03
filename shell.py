@@ -65,3 +65,12 @@ def t_ID(self, t):
         r'[a-zA-Z_][a-zA-Z_0-9]*'
         t.type = 'ID'
         return t
+
+# Define a rule for handling errors
+# print(f"Illegal character '{t.value[0]}' at line {t.lineno}") This line prints an error message to the console, indicating the presence of an illegal character
+#it includes the specific character ('t.value[0]') and the line number ('t.lineno') where the error occurred
+#'t.lexer.skip(1)': This line tells the lexer to skip one character in the input, effectively recovering from the error and allowing the lexer to continue processing the remaining input
+#This prevents the lexer from getting stuck in an infinite loop due to an unrecognised character
+def t_error(self, t):
+        print(f"Illegal character '{t.value[0]}' at line {t.lineno}")
+        t.lexer.skip(1)
