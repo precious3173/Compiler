@@ -47,6 +47,12 @@ def t_NUMBER(self, t):
         return t
 
   # Define a rule to track line numbers
+#self is the instance of the class itself
+#'t' is the token instance that is being processed
+#'r'\nt' is a regular expression pattern that matches one or more newline character('\n)
+# The 'r' prefix denotes a raw string in python, which is often used with regular expressions to avoid unwanted escape character interpretation
+# 't.lexer.lineno += len(t.value):' this line increments the lexer's line number ('lineno') by the length of the matched newline sequence.
+# this is essential for keeping track of the current line number in the source code
 def t_newline(self, t):
         r'\n+'
         t.lexer.lineno += len(t.value)
