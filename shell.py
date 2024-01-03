@@ -56,3 +56,9 @@ def t_NUMBER(self, t):
 def t_newline(self, t):
         r'\n+'
         t.lexer.lineno += len(t.value)
+
+# Define a rule to handle identifiers
+def t_ID(self, t):
+        r'[a-zA-Z_][a-zA-Z_0-9]*'
+        t.type = 'ID'
+        return t
