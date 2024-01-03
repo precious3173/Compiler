@@ -74,3 +74,13 @@ def t_ID(self, t):
 def t_error(self, t):
         print(f"Illegal character '{t.value[0]}' at line {t.lineno}")
         t.lexer.skip(1)
+
+ # Build the lexer
+#The **kwargs syntax allows the method to accept additional keyword arguments, which can be used to customise the lexer's behaviour
+#self.lexer = lex.lex(module= self, **kwargs): This line creates an instance of the lexer('self.lexer') based on the rules defined in the class
+#lex.lex: This is a function provided by the ply library that creates a lexer
+#module= self: This parameter specifies the module(class instance) containing the lexer rules. in other words, it tells the lexer where to find the rules
+#**kwargs: This syntax allows passing additional keyword arguments to the lex.lex function. These arguments can be used to customize the lexer's behavior
+               
+def build(self, **kwargs):
+        self.lexer = lex.lex(module=self, **kwargs)
