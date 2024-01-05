@@ -75,6 +75,13 @@ def t_error(self, t):
         print(f"Illegal character '{t.value[0]}' at line {t.lineno}")
         t.lexer.skip(1)
 
+#// matches the double forward slash that typically denotes the start of a single-line comment
+#[^n]* matches any sequence of characters(*) that does not include the character 'n'. This is intended to match the content of the comment until the end of the line
+# pass. This is a placeholder statement, and it does nothing. it's common in python to use 'pass' as a placeholder when a block of code is syntactically required but you don't want to execute any specific code 
+def t_comment(self, t):
+       r'//[^n]*'
+       pass  
+
  # Build the lexer
 #The **kwargs syntax allows the method to accept additional keyword arguments, which can be used to customise the lexer's behaviour
 #self.lexer = lex.lex(module= self, **kwargs): This line creates an instance of the lexer('self.lexer') based on the rules defined in the class
