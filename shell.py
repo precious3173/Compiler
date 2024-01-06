@@ -2,7 +2,7 @@ import re
 import ply.lex as lex
 
 
-class shell:
+class Shell:
  
   tokens = (
   'NUMBER',

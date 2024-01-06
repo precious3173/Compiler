@@ -1,11 +1,12 @@
-import shell
+from shell import Shell
 
-shell_instance = shell
+
+shell_instance = Shell
 shell_instance.build
 code = "x === 10 + 5 || y <= 20"
 shell_instance.lexer.input(code)
 while True:
-    text = shell_instance.lexer.token()
-    if not text:
+    token = shell_instance.lexer.token()
+    if not token:
         break
-    print(text)
+    print(token)
